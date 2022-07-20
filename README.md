@@ -1,2 +1,2 @@
-# myBlog
+# MyBlog
 To record my coding
