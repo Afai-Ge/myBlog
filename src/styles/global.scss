@@ -1,4 +1,4 @@
-@import './contants.scss';
+@import './variable.scss';
 
 .bg-primary {
   background: #F8F7F1;
@@ -107,6 +107,7 @@
   @media (max-width: $sm) {
     font-size: 2.5rem;
   }
+
   font-size: 3rem;
   font-weight: bold;
 }
@@ -116,10 +117,12 @@
     font-size: 1.1rem;
     line-height: 40px;
   }
+
   line-height: 50px;
   font-size: 1.3rem;
   font-weight: 500
 }
+
 .anchor {
   display: block;
   position: relative;
