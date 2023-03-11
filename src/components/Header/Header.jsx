@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import css from "./Header.module.scss";
 import { AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { getMenuStyles, headerVariants } from "../../utils/motion";
 import useHeaderShadow from "../../hooks/useHeaderShadow";
 const Header = () => {
+  const menuRef = useRef(null);
   const [menuOpened, setMenuOpened] = useState(false);
   const headerShadow = useHeaderShadow();
   return (
@@ -12,14 +13,15 @@ const Header = () => {
       initial="hidden"
       whileInView="show"
       variants={headerVariants}
-      viewport={{ once: true }}
-      className={`paddings ${css.wrapper}`}
+      viewport={{ once: false, amount: 0.25 }}
+      className={`bg-primary paddings ${css.wrapper}`}
       style={{ boxShadow: headerShadow }}
     >
-      <div className={`flexCenter ${css.container}`}>
+      <div className={`flexCenter innerWidth ${css.container}`}>
         <div className={css.name}>Alan</div>
         <ul
           style={getMenuStyles(menuOpened)}
+          ref={menuRef}
           className={`flexCenter ${css.menu}`}
         >
           <li>
@@ -34,10 +36,10 @@ const Header = () => {
           <li>
             <a href="">Testimonials</a>
           </li>
-          <li className={`flexCenter ${css.email}`}>
+          {/* <li className={`flexCenter ${css.email}`}>
             <AiOutlineMail size={"40px"} />
             <p>zhouzehui29@163.com</p>
-          </li>
+          </li> */}
         </ul>
         {/* 仅在中小屏幕使用 */}
         <div

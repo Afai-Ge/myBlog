@@ -6,3 +6,11 @@ $xxl: 1536px;
 $primary: #0D2F3F;
 $secondary: #286F6C;
 $secondary-white: #E7E7E7;
+
+@mixin flexDefaults($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
